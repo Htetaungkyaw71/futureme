@@ -4,6 +4,7 @@ const bodyparser = require("body-parser");
 const ejs = require("ejs");
 app.use(bodyparser.urlencoded({extended:true}))
 app.set("view engine","ejs")
+require("dotenv").config()
 var nodemailer = require('nodemailer');
 
 
@@ -24,7 +25,7 @@ app.post("/",(req,res)=>{
             service: 'gmail',
             auth: {
               user: 'htetaung200071@gmail.com',
-              pass: '30221018'
+              pass: process.env.PASSWORD
             }
           });
           
